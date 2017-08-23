@@ -6,7 +6,8 @@ import javax.servlet.ServletException;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import org.springframework.web.util.Log4jConfigListener;
 
-public class Inicializador extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class Inicializador extends
+		AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
@@ -22,13 +23,14 @@ public class Inicializador extends AbstractAnnotationConfigDispatcherServletInit
 	protected String[] getServletMappings() {
 		return new String[] { "/" };
 	}
-	
+
 	@Override
-	public void onStartup(ServletContext servletContext) throws ServletException {
+	public void onStartup(ServletContext servletContext)
+			throws ServletException {
 		super.onStartup(servletContext);
-		
-		
-		servletContext.setInitParameter("log4jConfigLocation", "/WEB-INF/log4j.xml");
+
+		servletContext.setInitParameter("log4jConfigLocation",
+				"/WEB-INF/log4j.xml");
 		servletContext.addListener(new Log4jConfigListener());
 
 	}
